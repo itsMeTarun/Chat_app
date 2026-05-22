@@ -348,3 +348,150 @@
 .unread-badge {
   animation: badgePulse 2s ease-in-out infinite;
 }
+
+/* ==================== AUTH PAGE UTILITIES ==================== */
+
+/* Auth card entrance stagger */
+@keyframes authCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.auth-card-enter {
+  animation: authCardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating orb decoration */
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.08);
+    opacity: 0.25;
+  }
+}
+
+.auth-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatOrb 6s ease-in-out infinite;
+}
+
+.auth-orb-1 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35), transparent 70%);
+  top: -80px;
+  right: -80px;
+  animation-delay: 0s;
+}
+
+.auth-orb-2 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
+  bottom: -60px;
+  left: -60px;
+  animation-delay: 3s;
+}
+
+.auth-orb-3 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.25), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 1.5s;
+}
+
+/* Password strength bar */
+.password-strength-bar {
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.strength-weak {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+  width: 25%;
+}
+
+.strength-fair {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  width: 50%;
+}
+
+.strength-good {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  width: 75%;
+}
+
+.strength-strong {
+  background: linear-gradient(90deg, #10b981, #34d399);
+  width: 100%;
+}
+
+/* Input focus glow ring for auth fields */
+.auth-input {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-input:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Loading dots for submit button */
+@keyframes loadingDots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+}
+
+.btn-loading {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Divider with text */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.4), transparent);
+}
+
+.dark .auth-divider::before,
+.dark .auth-divider::after {
+  background: linear-gradient(90deg, transparent, rgba(71, 85, 105, 0.6), transparent);
+}
+
+/* Brand logo pulse */
+@keyframes logoPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(99, 102, 241, 0);
+  }
+}
+
+.auth-logo-pulse {
+  animation: logoPulse 3s ease-in-out infinite;
+}
