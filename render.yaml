@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: realtime-chat-app-backend
+    env: node
+    buildCommand: npm ci
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://tarun123:YtWTrbu3OADq6iKb@cluster.tzlq2ce.mongodb.net/chat_app
+      - key: PORT
+        value: "5000"
+      - key: JWT_SECRET
+        value: secretkey
+      - key: CLIENT_URL
+        value: https://realtime-chat-app-henna-nine.vercel.app
+      - key: NODE_ENV
+        value: production

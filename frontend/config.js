@@ -1,0 +1,6 @@
+const BACKEND_PRODUCTION_URL = 'https://realtime-chat-app-xlk8.onrender.com';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || BACKEND_PRODUCTION_URL;
+const SOCKET_URL = process.env.NEXT_PUBLIC_SOCKET_URL || BACKEND_PRODUCTION_URL;
+
+export { API_URL, SOCKET_URL, BACKEND_PRODUCTION_URL };

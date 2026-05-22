@@ -1,0 +1,350 @@
+@import "tailwindcss";
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #cbd5e1, #94a3b8);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #475569, #334155);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #94a3b8, #64748b);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #64748b, #475569);
+}
+
+/* Modern Animated Gradient Background */
+.animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #fdfbfb,
+    #ebedee,
+    #fdfbfb,
+    #e0e0e0,
+    #fdfbfb,
+    #f0f0f0,
+    #e5e5e5,
+    #fdfbfb
+  );
+  background-size: 300% 300%;
+  animation: gradientBG 20s ease infinite;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.animated-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 80% 80%,
+    rgba(102, 126, 234, 0.15) 0%,
+    transparent 40%
+  );
+  pointer-events: none;
+}
+
+.dark .animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #0f0c29,
+    #302b63,
+    #24243e,
+    #0f0c29,
+    #1a1a2e,
+    #16213e,
+    #0f3460,
+    #0f0c29
+  );
+  background-size: 300% 300%;
+  animation: gradientBG 20s ease infinite;
+}
+
+.dark .animated-bg::before {
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 50%
+  );
+}
+
+.dark .animated-bg::after {
+  background: radial-gradient(
+    circle at 80% 80%,
+    rgba(102, 126, 234, 0.1) 0%,
+    transparent 40%
+  );
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Loading spinner animation */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide up fade in for message items */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-enter {
+  animation: slideUpFade 0.3s ease-out forwards;
+}
+
+/* Quick reaction hover effects */
+.quick-reaction-btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.quick-reaction-btn:hover {
+  transform: scale(1.25) translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.quick-reaction-btn:active {
+  transform: scale(0.9);
+}
+
+/* Image preview zoom */
+.image-message {
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.image-message:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Reaction chip styles */
+.reaction-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.reaction-chip:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.08);
+}
+.dark .reaction-chip {
+  background: rgba(39, 39, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.dark .reaction-chip:hover {
+  background: rgba(39, 39, 42, 1);
+}
+
+/* Reply preview bar */
+.reply-preview-bar {
+  border-left: 3px solid currentColor;
+  border-radius: 2px 8px 8px 2px;
+  padding: 4px 10px;
+  margin-bottom: 2px;
+  opacity: 0.85;
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #27272a 25%, #3f3f46 50%, #27272a 75%);
+  background-size: 200% 100%;
+}
+
+/* Custom file attachment display */
+.file-attachment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.file-attachment:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+.dark .file-attachment {
+  background: rgba(39, 39, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.dark .file-attachment:hover {
+  background: rgba(39, 39, 42, 0.8);
+}
+
+/* Options dropdown animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.options-dropdown {
+  animation: scaleIn 0.15s ease-out forwards;
+}
+
+/* Typing indicator dots */
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+/* Image upload preview fade */
+.image-preview-enter {
+  animation: scaleIn 0.2s ease-out forwards;
+}
+
+/* Unread badge pulse */
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.unread-badge {
+  animation: badgePulse 2s ease-in-out infinite;
+}
