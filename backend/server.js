@@ -33,6 +33,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const defaultOrigins = [
   "http://localhost:3000",
   "https://9dv7hgnx-3000.inc1.devtunnels.ms",
+  "https://chat-app-ashen-nine.vercel.app",
 ];
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS
